@@ -24,7 +24,10 @@ body,
 html {
     /* Sets default font-size to 16px, ensuring 1em = 16px; */
     font-size: 16px;
-    font-family: Helvetica;
+    font-family: 'Lucida Sans Unicode', sans-serif;
+    height: 100%;
+    background-color: rgb(57, 8, 41);
+    color:rgb(255, 255, 255)
 }
 
 /** RESPONSIVE IMAGES */
@@ -60,7 +63,7 @@ figcaption {
 
 /** Images are allowed to be a little wider when broken out into their own container */
 .container.image {
-    max-width: 1200px;
+    max-width: 800px;
     padding: 0;
 }
 
@@ -143,6 +146,78 @@ figcaption {
     border: 0;
 }
 
+
+/** images and slide setup **/
+
+.images {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+}
+
+
+.images .image {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition-duration: .8s;
+    transition-timing-function: ease-in-out;
+}
+
+.images .image.active {
+    opacity: 1;
+    left: 0px;
+}
+
+.slides {
+    position: relative;
+    z-index: 2;
+}
+
+.slide {
+    position: relative;
+}
+
+.slide .container {
+    background-color: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    padding: 22px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.header-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/housingbx-headerimg.jpg);
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.header-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+h1, h2 {
+    font-family:Cambria, serif;
+    font-size: 3rem;
+}
+
+
 /*********************************************************************
   YOUR TABLET/DESKTOP STYLES GO HERE
 *********************************************************************/
@@ -161,6 +236,25 @@ figcaption {
     .sticky .stick {
         right: 10px;
     }
+
+    .flex {
+        display: flex;
+    }
+
+    .images,
+    .slides {
+        flex-basis: 40%;
+    }
+
+    .images {
+        position: sticky;
+    }
+
+    .images img {
+        height: 100vh;
+        width: auto;
+    }
+
 }
 
 /*********************************************************************
